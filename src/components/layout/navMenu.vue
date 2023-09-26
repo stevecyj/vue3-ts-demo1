@@ -1,4 +1,5 @@
 <script setup lang='ts'>
+import { rec, reactive } from 'vue'
 import {
   Document,
   Menu as IconMenu,
@@ -11,26 +12,26 @@ const handleOpen = (key: string, keyPath: string[]) => {
 const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }
+
+const menuItems = reactive([
+  { name: '首頁', url: '/index', icon: Document },
+  { name: '監控', url: '/monitor', icon: Location },
+  { name: '訂單', url: '/order', icon: Setting },
+  { name: '統計', url: '/census', icon: IconMenu },
+])
 </script>
 
 <template>
   <el-aside width="200px">
-    <el-menu default-active="/index" router>
-      <el-menu-item index="/index">
-        <el-icon><icon-menu /></el-icon>
-        <span>1111</span>
-      </el-menu-item>
-      <el-menu-item index="/monitor">
-        <el-icon><icon-menu /></el-icon>
-        <span>2222</span>
-      </el-menu-item>
-      <el-menu-item index="/order">
-        <el-icon><icon-menu /></el-icon>
-        <span>3333</span>
-      </el-menu-item>
-      <el-menu-item index="/census">
-        <el-icon><icon-menu /></el-icon>
-        <span>4444</span>
+    <el-menu default-active="/index"
+             router>
+      <el-menu-item :index='v.url'
+                    v-for='v in menuItems'
+                    :key='v.url'>
+        <el-icon>
+          <component :is='v.icon' />
+        </el-icon>
+        <span>{{ v.name }}</span>
       </el-menu-item>
     </el-menu>
   </el-aside>
