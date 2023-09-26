@@ -4,12 +4,8 @@ import {
   Location,
   Setting,
 } from "@element-plus/icons-vue";
+import { INavMenu } from "../../models";
 
-interface INavMenu {
-  name: string;
-  url: string;
-  icon?: any;
-}
 export const useMenu = () => {
   const menuItems: INavMenu[] = [
     { name: "首頁", url: "/index", icon: Document },
