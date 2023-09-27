@@ -22,6 +22,7 @@ declare module 'vue' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     HelloButton: typeof import('./src/components/HelloButton.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Icons: typeof import('./src/components/common/icons.vue')['default']
     Layout: typeof import('./src/components/layout/index.vue')['default']
     NavMenu: typeof import('./src/components/layout/navMenu.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

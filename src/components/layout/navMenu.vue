@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// import { rec, reactive } from 'vue'
 import { useMenu } from "./useMenu";
+import Icons from "../common/icons.vue";
 const { menuItems } = useMenu();
 </script>
 
@@ -15,9 +15,7 @@ const { menuItems } = useMenu();
         :index="v.url"
         :key="v.url"
       >
-        <el-icon>
-          <component :is="v.icon" />
-        </el-icon>
+        <Icons :icon="v.icon" />
         <span>{{ v.name }}</span>
       </el-menu-item>
     </el-menu>
