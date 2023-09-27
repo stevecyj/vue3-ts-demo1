@@ -1,5 +1,4 @@
 <script setup lang='ts'>
-import { ref, react } from 'vue'
 import NavMenu from './navMenu.vue'
 </script>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+// import { defineProps } from "vue";
 
 // 泛型
 const { icon } = defineProps<{
