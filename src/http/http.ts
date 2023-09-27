@@ -1,5 +1,8 @@
 import axios from "axios";
 
+// ip, port
+axios.defaults.baseURL = "http://localhost:3000";
+
 // 請求攔截器
 axios.interceptors.request.use((config) => config);
 
