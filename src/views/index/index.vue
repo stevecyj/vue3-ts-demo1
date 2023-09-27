@@ -1,33 +1,37 @@
 <script lang="ts" setup>
 // 類型定義
-interface ITableData {
-  date: string;
-  name: string;
-  address: string;
-}
+import {ref, onMounted } from "vue";
+import axios from "../../http/http";
+import { ITableData } from "../../models/index";
+
+const tableData = ref<ITableData[]>([]);
+onMounted(async() => {
+  let {data}= await axios.request<{data:ITableData[]}>('get', '/data/query')
+}),
+
 // 表格数据類型添加
-const tableData: Array<ITableData> = [
-  {
-    date: "2016-05-03",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-  {
-    date: "2016-05-02",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-  {
-    date: "2016-05-04",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-  {
-    date: "2016-05-01",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-];
+// const tableData: Array<ITableData> = [
+//   {
+//     date: "2016-05-03",
+//     name: "Tom",
+//     address: "No. 189, Grove St, Los Angeles",
+//   },
+//   {
+//     date: "2016-05-02",
+//     name: "Tom",
+//     address: "No. 189, Grove St, Los Angeles",
+//   },
+//   {
+//     date: "2016-05-04",
+//     name: "Tom",
+//     address: "No. 189, Grove St, Los Angeles",
+//   },
+//   {
+//     date: "2016-05-01",
+//     name: "Tom",
+//     address: "No. 189, Grove St, Los Angeles",
+//   },
+// ];
 </script>
 
 <template>
