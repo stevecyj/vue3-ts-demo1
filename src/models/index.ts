@@ -4,3 +4,8 @@ export interface INavMenu {
   url: string;
   icon?: any;
 }
+
+// http
+export interface IHttp {
+  request<T>(method: string, url: string, params: unknown): Promise<T>;
+}
