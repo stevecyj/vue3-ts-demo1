@@ -7,7 +7,7 @@ import {
 import { INavMenu } from "../../models";
 
 export const useMenu = () => {
-  const menuItems: INavMenu[] = [
+  const menuItems: Array<INavMenu> = [
     { name: "首頁", url: "/index", icon: Document },
     { name: "監控", url: "/monitor", icon: Location },
     { name: "訂單", url: "/order", icon: Setting },
