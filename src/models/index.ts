@@ -8,10 +8,12 @@ export interface INavMenu {
 // table
 export interface ITableData {
   date: string;
-  title: string;
-  user: string;
-  id: number;
-  check: boolean;
+  name: string;
+  address: string;
+  // title: string;
+  // user: string;
+  // id: number;
+  // check: boolean;
 }
 
 // http
