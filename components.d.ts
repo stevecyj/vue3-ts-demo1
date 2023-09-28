@@ -20,6 +20,7 @@ declare module 'vue' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    ElTag: typeof import('element-plus/es')['ElTag']
     HelloButton: typeof import('./src/components/HelloButton.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Icons: typeof import('./src/components/common/icons.vue')['default']

@@ -1,7 +1,7 @@
-<script lang='ts'>
+<script lang="ts">
 export default {
-  name: "Index"
-}
+  name: "Index",
+};
 </script>
 <script setup lang="ts">
 // 類型定義
@@ -47,6 +47,15 @@ onMounted(async () => {
     <el-table-column
       prop="check"
       label="狀態"
-    />
+    >
+      <template #default="{ row }">
+        <el-tag
+          class="ml-2"
+          :type="row.check ? 'success' : 'warning'"
+        >
+          {{ row.check ? "已完成" : "未完成" }}
+        </el-tag>
+      </template>
+    </el-table-column>
   </el-table>
 </template>
