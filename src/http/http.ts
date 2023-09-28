@@ -2,7 +2,7 @@ import axios, { type AxiosRequestConfig, AxiosResponse } from "axios"; // AxiosR
 import { IHttp } from "../models/index";
 
 // ip, port
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "http://localhost:5173";
 
 // 請求攔截器
 axios.interceptors.request.use((config: AxiosRequestConfig | any) => config);

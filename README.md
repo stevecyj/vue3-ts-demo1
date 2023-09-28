@@ -19,7 +19,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 ## vite-plugin-mock
 
-在node_modules/vite-plugin-mock/dist/index.mjs这个文件中做如下配置：
+在node_modules/vite-plugin-mock/dist/index.mjs 这个文件中做如下配置：
 ```
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
