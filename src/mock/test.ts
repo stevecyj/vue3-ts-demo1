@@ -4,6 +4,13 @@ import { ITableData } from "../models/index";
 const fakeData: ITableData[] = [
   {
     date: "2023-09-28",
+    title: "Sample Title 28",
+    user: "User A28",
+    id: 128,
+    check: true,
+  },
+  {
+    date: "2023-09-28",
     title: "Sample Title 1",
     user: "User A",
     id: 1,

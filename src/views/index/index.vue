@@ -5,7 +5,8 @@ export default {
 </script>
 <script setup lang="ts">
 // 類型定義
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+// import type { TableColumnCtx } from "element-plus";
 import axios from "../../http/http";
 import { ITableData } from "../../models/index";
 
@@ -19,6 +20,25 @@ onMounted(async () => {
   console.log("mounted", data);
   tableData.value = data;
 });
+
+// 處理日期動態數據
+const dateList = computed(() => {
+  // 去重
+  return Array.from(new Set(tableData.value.map((item) => item.date))).map(
+    (item) => ({
+      text: item,
+      value: item,
+    })
+  );
+});
+// 篩選方法
+const filterHandler = (
+  value: string,
+  row: ITableData
+  // column: TableColumnCtx<ITableData>
+) => {
+  return row.date === value;
+};
 </script>
 
 <template>
@@ -30,6 +50,9 @@ onMounted(async () => {
       prop="date"
       label="日期"
       width="180"
+      column-key="date"
+      :filters="dateList"
+      :filter-method="filterHandler"
     />
     <el-table-column
       prop="title"
