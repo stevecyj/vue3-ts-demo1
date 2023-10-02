@@ -5,12 +5,14 @@ export default {
 </script>
 <script setup lang="ts">
 // 類型定義
-import { ref, onMounted, computed } from "vue";
-// import type { TableColumnCtx } from "element-plus";
+import { ref, reactive, onMounted, computed } from "vue";
 import axios from "../../http/http";
 import { ITableData } from "../../models/index";
 
 const tableData = ref<ITableData[]>([]); // 表格數據
+let dialogFormVisible = ref<boolean>(false); // 彈框顯示
+let form = ref({});
+const formLabelWidth = "140px";
 
 onMounted(async () => {
   let { data } = await axios.request<{ data: ITableData[] }>(
@@ -35,13 +37,25 @@ const dateList = computed(() => {
 const filterHandler = (
   value: string,
   row: ITableData
-  // column: TableColumnCtx<ITableData>
 ) => {
   return row.date === value;
+};
+
+// 新增、編輯
+const setData = (type: string, row: ITableData | null) => {
+  dialogFormVisible.value = true;
+  type==="add" ? form.value = {} : form.value = {...row};
 };
 </script>
 
 <template>
+  <div>
+    <el-button
+      type="success"
+      @click="setData('add', null)"
+      >新增</el-button
+    >
+  </div>
   <el-table
     :data="tableData"
     style="width: 100%"
@@ -81,4 +95,51 @@ const filterHandler = (
       </template>
     </el-table-column>
   </el-table>
+
+  <!-- 彈框 -->
+  <el-dialog
+    v-model="dialogFormVisible"
+    title="新增"
+  >
+    <el-form :model="form">
+      <el-form-item
+        label="Promotion name"
+        :label-width="formLabelWidth"
+      >
+        <el-input
+          v-model="form.name"
+          autocomplete="off"
+        />
+      </el-form-item>
+      <el-form-item
+        label="Zones"
+        :label-width="formLabelWidth"
+      >
+        <el-select
+          v-model="form.region"
+          placeholder="Please select a zone"
+        >
+          <el-option
+            label="Zone No.1"
+            value="shanghai"
+          />
+          <el-option
+            label="Zone No.2"
+            value="beijing"
+          />
+        </el-select>
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">Cancel</el-button>
+        <el-button
+          type="primary"
+          @click="dialogFormVisible = false"
+        >
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
 </template>

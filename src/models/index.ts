@@ -8,8 +8,6 @@ export interface INavMenu {
 // table
 export interface ITableData {
   date: string;
-  // name: string;
-  // address: string;
   title: string;
   user: string;
   id: number;
