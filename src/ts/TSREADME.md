@@ -109,3 +109,44 @@ obj.soulmate && console.log(obj.soulmate)
 // 可選鋉
 obj.soulmate?.split('')
 ```
+
+## interface
+
+```js
+// interface
+// 作用：約束物件的屬性和方法
+// 行尾可以不加符號
+
+// interface 接口名稱 {
+//   // 屬性
+//   屬性名稱: 屬性類型
+//   // 方法
+//   方法名稱(): 返回值類型
+// }
+
+interface IPerson {
+    name: string;
+    age: number;
+    gender: string;
+    sayHi: () => void;
+}
+
+const p1: IPerson = {
+        name: "Max",
+        age: 30,
+        gender: "male",
+        sayHi: () => {
+            console.log("Hi");
+        },
+```
+
+### 和 type 的差異
+
+* 相同點：都可以用來描述物件或函數
+* 相異點：
+  + interface 只能約束物件
+* 目前專案 interface 很常見
+  + c、java 常用 interface，後來才接觸 TypeScript
+  + 早期沒有 interface，後來才加入
+  + 能用 type 就用 type，type 更靈活、更簡單、組合起來更方便
+  + 泛型會用到
