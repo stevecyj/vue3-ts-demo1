@@ -226,3 +226,32 @@ let position2: [number, number] = [24.123, 121.123];
 * 函數回傳值
 
 建議：開發時能省略就省略(充分利用 ts 的類型推論)
+
+## 字面量類型
+
+```js
+// const 聲明的變量不可修改，意味自始至終都是 "hello"，所以 ts 將其當做一個字面量類型 "hello"
+let str1 = "hello"; // str1: string
+const str2 = "hello"; // str2: "hello"
+
+// 字面量：字面量是一種表示值的表示法，它可以表示數值、字符串、布爾值、對象、數組等
+// 100、"hello"、true、{}、[] 都是字面量
+// 字面量類型：上列都是
+// 把字面量當做類型使用
+```
+
+使用模式和場景
+* 使用模式：字面量類型通常和聯合類型一起使用
+* 使用場景：用來表示一組明確的可選值列表
+  + 貪食蛇：方向的可選值只能是上、下、左、右其中一個
+
+```js
+type Direction = "上" | "下" | "左" | "右";
+
+function changeDirection(direction: Direction) {
+    console.log(direction);
+}
+
+changeDirection('右') // 可以
+changeDirection('Max') // 不可以
+```
