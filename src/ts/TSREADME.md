@@ -150,3 +150,25 @@ const p1: IPerson = {
   + 早期沒有 interface，後來才加入
   + 能用 type 就用 type，type 更靈活、更簡單、組合起來更方便
   + 泛型會用到
+
+### 繼承
+
+```js
+// 繼承
+// 長輩有的我都要
+// IStudent 具備 IPerson 所有的約束規範
+interface IStudent extends IPerson {
+    score: number;
+    sleep: () => void;
+}
+
+const s1: IStudent = {
+    name: "biubiu",
+    age: 18,
+    gender: "male",
+    score: 100,
+    sleep: () => {
+        console.log("sleep");
+    },
+};
+```

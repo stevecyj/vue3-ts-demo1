@@ -25,4 +25,22 @@
       console.log("Hi");
     },
   };
+
+  // 繼承
+  // 長輩有的我都要
+  // IStudent 具備 IPerson 所有的約束規範
+  interface IStudent extends IPerson {
+    score: number;
+    sleep: () => void;
+  }
+
+  const s1: IStudent = {
+    name: "biubiu",
+    age: 18,
+    gender: "male",
+    score: 100,
+    sleep: () => {
+      console.log("sleep");
+    },
+  };
 }
