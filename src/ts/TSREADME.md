@@ -279,3 +279,21 @@ function changeDirection(direction: Direction) {
 
 changeDirection(Direction.Down)
 ```
+
+## any
+
+> 任意值，不做類型檢查，不建議使用
+
+## 類型斷言
+
+```js
+// id 為 link 的元素，一定存在
+// 強行指定類型
+const a = document.getElementById('link') as HTMLAnchorElement
+
+const div = document.createElement('div')
+
+a && a.href
+```
+
+> 當函數獲取到的結果類型比較寬泛時，但是我們明確知道它是某個類型時，可以使用類型斷言強行指定類型
