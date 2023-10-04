@@ -255,3 +255,27 @@ function changeDirection(direction: Direction) {
 changeDirection('右') // 可以
 changeDirection('Max') // 不可以
 ```
+
+## 枚舉
+
+> 後端給前端的屬性值，常見0、1、2、3，前端要用到的時候，可以用枚舉對應
+> 例如：0 代表男，1 代表女，2 代表不確定
+
+```js
+// 枚舉
+// 如果沒有給定值，則會從 0 開始
+// type Direction = "上" | "下" | "左" | "右";
+
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+}
+
+function changeDirection(direction: Direction) {
+    console.log(direction);
+}
+
+changeDirection(Direction.Down)
+```
