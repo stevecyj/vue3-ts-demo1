@@ -297,3 +297,26 @@ a && a.href
 ```
 
 > 當函數獲取到的結果類型比較寬泛時，但是我們明確知道它是某個類型時，可以使用類型斷言強行指定類型
+
+## 泛型
+
+```js
+// 泛型
+// 使用 any 沒有類型提示
+// 類型不寫死，使用時決定
+// <T> => 聲明泛型
+// val: T => 使用泛型
+function getId < T > (val: T) {
+    return val;
+}
+
+getId < number > (123);
+getId < string > ('123');
+
+const result = getId < number > (123);
+```
+
+## 泛型約束
+
+- 類型收縮
+![類型收縮](./images/type.png)
