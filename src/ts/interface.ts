@@ -43,4 +43,31 @@
       console.log("sleep");
     },
   };
+
+  // 面試題
+  // type 如何和 interface 一樣實現繼承
+  type Person = {
+    username: string;
+    age: number;
+    gender: string;
+    sayHi: () => void;
+  };
+
+  type Student = {
+    score: number;
+    sleep: () => void;
+  } & Person;
+
+  const s2: Student = {
+    username: "biubiu",
+    age: 18,
+    gender: 'male',
+    sayHi() {
+      console.log("Hi");
+    },
+    score: 100,
+    sleep: () => {
+      console.log("sleep");
+    },
+  }
 }
