@@ -350,3 +350,5 @@ function getId < T > (val: T[]) {
 * 類型收縮
 
 ![類型收縮](./images/type.png)
+
+* 添加約束
