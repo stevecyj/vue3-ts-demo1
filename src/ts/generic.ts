@@ -4,7 +4,8 @@
   // 類型不寫死，使用時決定
   // <T> => 聲明泛型
   // val: T => 使用泛型
-  function getId<T>(val: T) {
+  function getId<T>(val: T[]) {
+    console.log(val.length)
     return val;
   }
 

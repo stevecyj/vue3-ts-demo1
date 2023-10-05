@@ -334,6 +334,19 @@ const result6 = getId(true); // 類型推斷 => true
 
 ## 泛型約束
 
+* 泛型參數可能存在不確定類型，T是未知類型，無法確定它有哪些屬性和方法
+
+![no length](./images/nolength.png)
+
+* 指定更具體的類型，確保它有 length 屬性
+
+```js
+function getId < T > (val: T[]) {
+    console.log(val.length)
+    return val;
+}
+```
+
 * 類型收縮
 
 ![類型收縮](./images/type.png)
