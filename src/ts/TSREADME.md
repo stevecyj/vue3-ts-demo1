@@ -316,7 +316,24 @@ getId < string > ('123');
 const result = getId < number > (123);
 ```
 
+## 簡化泛型函數調用
+
+* 省略泛型參數時，會自動推斷成字面量類型
+
+```js
+const result = getId < number > (123); // 類型推斷 => number
+const result2 = getId < string > ('123'); // 類型推斷 => string
+const result3 = getId < boolean > (true); // 類型推斷 => boolean
+
+const result4 = getId(123); // 類型推斷 => 123
+const result5 = getId('123'); // 類型推斷 => '123'
+const result6 = getId(true); // 類型推斷 => true
+```
+
+* 泛型參數可以使用任意變數
+
 ## 泛型約束
 
-- 類型收縮
+* 類型收縮
+
 ![類型收縮](./images/type.png)
