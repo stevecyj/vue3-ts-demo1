@@ -11,7 +11,12 @@ export const useMenu = () => {
     { name: "首頁", url: "/index", icon: Document },
     { name: "監控", url: "/monitor", icon: Location },
     { name: "訂單", url: "/order", icon: Setting },
-    { name: "統計", url: "/census", icon: IconMenu },
+    {
+      name: "導航選單",
+      url: "/census",
+      icon: IconMenu,
+      children: [{ name: "無限選單", url: "/limitless", icon: IconMenu }],
+    },
   ];
   return {
     menuItems,
