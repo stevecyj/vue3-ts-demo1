@@ -4,8 +4,8 @@
   // 地圖：經緯度
 
   // 只能限制類型，無法限制長度
-  let position: number[] = [24.123, 121.123];
+  const position: number[] = [24.123, 121.123];
 
   // 元組
-  let position2: [number, number] = [24.123, 121.123];
+  const position2: [number, number] = [24.123, 121.123];
 }

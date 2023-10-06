@@ -1,5 +1,5 @@
 import Mock from "mockjs";
-import { INewsList } from "../models/index";
+import { type INewsList } from "../models/index";
 
 //  基础语法
 const data = Mock.mock({
@@ -24,7 +24,7 @@ const data = Mock.mock({
   birth2: new Date(Mock.Random.datetime("yyyy-MM-dd HH:mm:ss")), // 值是 Date 类型
   "status|1": ["published", "draft"], // 随机选择1个
   // 数组  指定长度：'data|5'  指定范围'data|5-10'
-  "list|1-10": [{ name: "@name()", address: "@city", id: "@increment(2)" }],
+  "list|1-10": [{ name: "@name()", address: "@city", id: "@increment(2)" }]
 });
 
 // console.log("mock data", data);
@@ -41,6 +41,6 @@ Mock.mock("/news-demo", "get", () => {
   return {
     code: 200,
     message: "success",
-    data: newsDataList,
+    data: newsDataList
   };
 });

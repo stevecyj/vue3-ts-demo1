@@ -1,7 +1,7 @@
 import {
   createRouter,
   createWebHashHistory,
-  RouteRecordRaw,
+  type RouteRecordRaw
 } from "vue-router";
 
 // interface IRouterList {
@@ -11,44 +11,44 @@ import {
 //   [propName: string]: any
 // }
 
-const routes:Array<RouteRecordRaw> = [
+const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    redirect: "/home",
+    redirect: "/home"
   },
   {
     path: "/home",
     redirect: "/index",
     name: "home",
-    component: () => import("../components/layout/index.vue"),
-    children:[
+    component: async () => await import("../components/layout/index.vue"),
+    children: [
       {
         path: "/index",
         name: "index",
-        component: () => import("../views/index/index.vue"),
+        component: async () => await import("../views/index/index.vue")
       },
       {
         path: "/monitor",
         name: "monitor",
-        component: () => import("../views/monitor/index.vue"),
+        component: async () => await import("../views/monitor/index.vue")
       },
       {
         path: "/order",
         name: "order",
-        component: () => import("../views/order/index.vue"),
+        component: async () => await import("../views/order/index.vue")
       },
       {
         path: "/census",
         name: "census",
-        component: () => import("../views/census/index.vue"),
-      },
+        component: async () => await import("../views/census/index.vue")
+      }
     ]
   }
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes
 });
 
 export default router;

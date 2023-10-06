@@ -2,7 +2,7 @@ export interface INavMenu {
   name: string;
   url: string;
   icon?: any;
-  children?: Array<INavMenu>;
+  children?: INavMenu[];
 }
 
 // table
@@ -16,7 +16,7 @@ export interface ITableData {
 
 // http
 export interface IHttp {
-  request<T>(method: string, url: string, params?: unknown): Promise<T>;
+  request: <T>(method: string, url: string, params?: unknown) => Promise<T>;
 }
 
 // news demo

@@ -23,7 +23,7 @@
     gender: "male",
     sayHi: () => {
       console.log("Hi");
-    },
+    }
   };
 
   // 繼承
@@ -41,17 +41,17 @@
     score: 100,
     sleep: () => {
       console.log("sleep");
-    },
+    }
   };
 
   // 面試題
   // type 如何和 interface 一樣實現繼承
-  type Person = {
+  interface Person {
     username: string;
     age: number;
     gender: string;
     sayHi: () => void;
-  };
+  }
 
   type Student = {
     score: number;
@@ -61,13 +61,13 @@
   const s2: Student = {
     username: "biubiu",
     age: 18,
-    gender: 'male',
+    gender: "male",
     sayHi() {
       console.log("Hi");
     },
     score: 100,
     sleep: () => {
       console.log("sleep");
-    },
-  }
+    }
+  };
 }

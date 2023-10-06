@@ -7,12 +7,12 @@
     Up,
     Down,
     Left,
-    Right,
+    Right
   }
 
   function changeDirection(direction: Direction) {
     console.log(direction);
   }
 
-  changeDirection(Direction.Down)
+  changeDirection(Direction.Down);
 }

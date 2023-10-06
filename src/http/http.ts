@@ -1,5 +1,5 @@
-import axios, { type AxiosRequestConfig, AxiosResponse } from "axios"; // AxiosRequestConfig: 請求參數類型
-import { IHttp } from "../models/index";
+import axios, { type AxiosRequestConfig, type AxiosResponse } from "axios"; // AxiosRequestConfig: 請求參數類型
+import { type IHttp } from "../models/index";
 
 // ip, port
 // Mock 時關閉
@@ -13,8 +13,8 @@ axios.interceptors.response.use(
   (res: AxiosResponse) => {
     return res.data;
   },
-  (err) => {
-    return Promise.reject(err);
+  async (err) => {
+    return await Promise.reject(err);
   }
 );
 
@@ -25,12 +25,12 @@ axios.interceptors.response.use(
 // }
 
 const http: IHttp = {
-  request: (method, url, params) =>
-    axios({
-      method: method,
-      url: url,
-      data: params,
-    }),
+  request: async (method, url, params) =>
+    await axios({
+      method,
+      url,
+      data: params
+    })
 };
 
 export default http;
