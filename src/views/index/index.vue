@@ -5,22 +5,40 @@ export default {
 </script>
 <script setup lang="ts">
 // 類型定義
-import { ref, reactive, onMounted, computed } from "vue";
+import { ref, onMounted, computed } from "vue";
 import axios from "../../http/http";
-import { ITableData } from "../../models/index";
+import { ITableData, INewsList } from "../../models/index";
 
 const tableData = ref<ITableData[]>([]); // 表格數據
 let dialogFormVisible = ref<boolean>(false); // 彈框顯示
 let form = ref({});
 const formLabelWidth = "140px";
 
-onMounted(async () => {
+let getNewsDemo = async () => {
+  let { data } = await axios.request<{ data: INewsList[] }>(
+    "get",
+    "/news-demo"
+  );
+  console.log("getNewsDemo", data);
+};
+
+let getTableData = async () => {
   let { data } = await axios.request<{ data: ITableData[] }>(
     "get",
     "/data/query"
   );
-  console.log("mounted", data);
   tableData.value = data;
+};
+
+onMounted(async () => {
+  // let { data } = await axios.request<{ data: ITableData[] }>(
+  //   "get",
+  //   "/data/query"
+  // );
+  // console.log("mounted", data);
+  // tableData.value = data;
+  getTableData();
+  getNewsDemo();
 });
 
 // 處理日期動態數據
@@ -34,17 +52,14 @@ const dateList = computed(() => {
   );
 });
 // 篩選方法
-const filterHandler = (
-  value: string,
-  row: ITableData
-) => {
+const filterHandler = (value: string, row: ITableData) => {
   return row.date === value;
 };
 
 // 新增、編輯
 const setData = (type: string, row: ITableData | null) => {
   dialogFormVisible.value = true;
-  type==="add" ? form.value = {} : form.value = {...row};
+  type === "add" ? (form.value = {}) : (form.value = { ...row });
 };
 </script>
 

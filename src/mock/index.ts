@@ -1,5 +1,13 @@
-import { MockMethod } from "vite-plugin-mock";
+import Mock from "mockjs";
 import { ITableData } from "../models/index";
+import "./mockExample";
+// console.log("mock", Mock);
+
+// mock拦截请求 参数1 url 2 请求类型 3 返回对象或函数
+// 设置拦截ajax请求的相应时间
+Mock.setup({
+  timeout: "200-600",
+});
 
 const fakeData: ITableData[] = [
   {
@@ -81,19 +89,10 @@ const fakeData: ITableData[] = [
   },
 ];
 
-export default [
-  {
-    url: "/config1",
-    method: "get",
-    response: (obj) => {
-      return { data: obj };
-    },
-  },
-  {
-    url: "/data/query",
-    method: "get",
-    response: () => {
-      return { data: fakeData };
-    },
-  },
-] as MockMethod[];
+Mock.mock("/data/query", "get", () => {
+  return {
+    code: 200,
+    message: "success",
+    data: fakeData,
+  };
+});
