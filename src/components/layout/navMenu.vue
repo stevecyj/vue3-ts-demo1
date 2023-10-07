@@ -22,7 +22,10 @@ const { menuItems } = useMenu();
           <Icons :icon="v.icon" />
           <span>{{ v.name }}</span>
         </el-menu-item>
-        <el-sub-menu v-if="v.children && v.children.length">
+        <el-sub-menu
+          v-if="v.children && v.children.length"
+          :index="v.url"
+        >
           <template #title>
             <Icons :icon="v.icon" />
             <span>{{ v.name }}</span>
