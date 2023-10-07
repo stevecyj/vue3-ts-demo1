@@ -47,5 +47,6 @@ module.exports = {
       }
     ],
     "@typescript-eslint/no-explicit-any": ["off"]
-  }
+  },
+  ignorePatterns: ["src/ts", "src/vite-env.d.ts"]
 };

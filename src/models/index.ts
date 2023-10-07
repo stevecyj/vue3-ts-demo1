@@ -1,6 +1,6 @@
 export interface INavMenu {
   name: string;
-  url: string;
+  url?: string;
   icon?: any;
   children?: INavMenu[];
 }

@@ -16,7 +16,7 @@ export const useMenu: UseMenuType = () => {
     { name: "訂單", url: "/order", icon: Setting },
     {
       name: "導航選單",
-      url: "/census",
+      url: "",
       icon: IconMenu,
       children: [
         { name: "雙層選單", url: "/twolayer", icon: IconMenu },
