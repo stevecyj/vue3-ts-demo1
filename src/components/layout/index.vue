@@ -3,7 +3,10 @@ import NavMenu from "./navMenu.vue";
 </script>
 
 <template>
-  <div id="module" class="common-layout">
+  <div
+    id="module"
+    class="common-layout"
+  >
     <el-container>
       <!-- 左側導航 -->
       <NavMenu />
