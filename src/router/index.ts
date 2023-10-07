@@ -38,9 +38,10 @@ const routes: RouteRecordRaw[] = [
         component: async () => await import("../views/order/index.vue")
       },
       {
-        path: "/census",
-        name: "census",
-        component: async () => await import("../views/census/index.vue")
+        path: "/twolayer",
+        name: "TwoLayer",
+        component: async () =>
+          await import("../views/twolayer/TwolayerIndex.vue")
       }
     ]
   }
