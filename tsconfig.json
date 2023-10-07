@@ -26,7 +26,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "utils/**/*.ts",
-    ".eslintrc.cjs"
+    ".eslintrc.cjs",
+    "vite.config.ts"
   ],
   "exclude": ["node_modules", "dist", "build", "coverage", "scripts"],
   "references": [{ "path": "./tsconfig.node.json" }]
