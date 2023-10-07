@@ -25,7 +25,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/index',
         name: 'index',
-        component: async () => await import('../views/index/index.vue')
+        component: async () => await import('../views/index/HomeIndex.vue')
       },
       {
         path: '/monitor',
