@@ -14,6 +14,12 @@ export interface ITableData {
   check: boolean;
 }
 
+// add form
+export interface IAddForm {
+  user: string;
+  title: string;
+}
+
 // http
 export interface IHttp {
   request: <T>(method: string, url: string, params?: unknown) => Promise<T>;

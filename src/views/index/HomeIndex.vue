@@ -2,11 +2,15 @@
 // 類型定義
 import { ref, onMounted, computed } from 'vue';
 import axios from '../../http/http';
-import { type ITableData, type INewsList } from '../../models/index';
+import {
+  type ITableData,
+  type INewsList,
+  type IAddForm
+} from '../../models/index';
 
 const tableData = ref<ITableData[]>([]); // 表格數據
 const dialogFormVisible = ref<boolean>(false); // 彈框顯示
-const form = ref({});
+const form = ref<IAddForm>({ user: '', title: '' });
 const formLabelWidth = '140px';
 
 const getNewsDemo = async (): Promise<void> => {
@@ -41,14 +45,16 @@ const dateList = computed(() => {
   );
 });
 // 篩選方法
-const filterHandler = (value: string, row: ITableData) => {
+const filterHandler = (value: string, row: ITableData): boolean => {
   return row.date === value;
 };
 
 // 新增、編輯
-const setData = (type: string, row: ITableData | null) => {
+const setData = (type: string, row: IAddForm): void => {
   dialogFormVisible.value = true;
-  type === 'add' ? (form.value = {}) : (form.value = { ...row });
+  type === 'add'
+    ? (form.value = { user: '', title: '' })
+    : (form.value = { user: row.user, title: row.title });
 };
 </script>
 
@@ -56,7 +62,7 @@ const setData = (type: string, row: ITableData | null) => {
   <div>
     <el-button
       type="success"
-      @click="setData('add', null)"
+      @click="setData('add', { user: '', title: '' })"
       >新增</el-button
     >
   </div>
@@ -114,7 +120,7 @@ const setData = (type: string, row: ITableData | null) => {
         :label-width="formLabelWidth"
       >
         <el-input
-          v-model="form.name"
+          v-model="form.user"
           autocomplete="off"
         />
       </el-form-item>
@@ -123,7 +129,7 @@ const setData = (type: string, row: ITableData | null) => {
         :label-width="formLabelWidth"
       >
         <el-select
-          v-model="form.region"
+          v-model="form.title"
           placeholder="Please select a zone"
         >
           <el-option
