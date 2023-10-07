@@ -8,7 +8,7 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{vue,js,ts,tsx}\"",
-    "lint:script": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./src"
+    "lint:script": "eslint --ext .js,.jsx,.ts,.tsx,.vue --fix --quiet ./src"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
