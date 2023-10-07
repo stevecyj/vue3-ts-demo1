@@ -6,7 +6,10 @@ import {
 } from "@element-plus/icons-vue";
 import { type INavMenu } from "../../models";
 
-export const useMenu = () => {
+type UseMenuType = () => {
+  menuItems: INavMenu[];
+};
+export const useMenu: UseMenuType = () => {
   const menuItems: INavMenu[] = [
     { name: "首頁", url: "/index", icon: Document },
     { name: "監控", url: "/monitor", icon: Location },
@@ -15,7 +18,10 @@ export const useMenu = () => {
       name: "導航選單",
       url: "/census",
       icon: IconMenu,
-      children: [{ name: "無限選單", url: "/limitless", icon: IconMenu }]
+      children: [
+        { name: "雙層選單", url: "/twolayer", icon: IconMenu },
+        { name: "無限選單", url: "/limitless", icon: IconMenu }
+      ]
     }
   ];
   return {
