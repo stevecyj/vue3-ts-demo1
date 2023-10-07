@@ -142,14 +142,14 @@ const p1: IPerson = {
 
 ### 和 type 的差異
 
-* 相同點：都可以用來描述物件或函數
-* 相異點：
-  + interface 只能約束物件
-* 目前專案 interface 很常見
-  + c、java 常用 interface，後來才接觸 TypeScript
-  + 早期沒有 interface，後來才加入
-  + 能用 type 就用 type，type 更靈活、更簡單、組合起來更方便
-  + 泛型會用到
+- 相同點：都可以用來描述物件或函數
+- 相異點：
+  - interface 只能約束物件
+- 目前專案 interface 很常見
+  - c、java 常用 interface，後來才接觸 TypeScript
+  - 早期沒有 interface，後來才加入
+  - 能用 type 就用 type，type 更靈活、更簡單、組合起來更方便
+  - 泛型會用到
 
 ### 繼承
 
@@ -222,8 +222,9 @@ let position2: [number, number] = [24.123, 121.123];
 ## 類型推論
 
 發生場景
-* 宣告變數並初始化時
-* 函數回傳值
+
+- 宣告變數並初始化時
+- 函數回傳值
 
 建議：開發時能省略就省略(充分利用 ts 的類型推論)
 
@@ -241,9 +242,10 @@ const str2 = "hello"; // str2: "hello"
 ```
 
 使用模式和場景
-* 使用模式：字面量類型通常和聯合類型一起使用
-* 使用場景：用來表示一組明確的可選值列表
-  + 貪食蛇：方向的可選值只能是上、下、左、右其中一個
+
+- 使用模式：字面量類型通常和聯合類型一起使用
+- 使用場景：用來表示一組明確的可選值列表
+  - 貪食蛇：方向的可選值只能是上、下、左、右其中一個
 
 ```js
 type Direction = "上" | "下" | "左" | "右";
@@ -318,27 +320,27 @@ const result = getId < number > (123);
 
 ## 簡化泛型函數調用
 
-* 省略泛型參數時，會自動推斷成字面量類型
+- 省略泛型參數時，會自動推斷成字面量類型
 
 ```js
-const result = getId < number > (123); // 類型推斷 => number
-const result2 = getId < string > ('123'); // 類型推斷 => string
-const result3 = getId < boolean > (true); // 類型推斷 => boolean
+const result = getId < number > 123; // 類型推斷 => number
+const result2 = getId < string > "123"; // 類型推斷 => string
+const result3 = getId < boolean > true; // 類型推斷 => boolean
 
 const result4 = getId(123); // 類型推斷 => 123
-const result5 = getId('123'); // 類型推斷 => '123'
+const result5 = getId("123"); // 類型推斷 => '123'
 const result6 = getId(true); // 類型推斷 => true
 ```
 
-* 泛型參數可以使用任意變數
+- 泛型參數可以使用任意變數
 
 ## 泛型約束
 
-* 泛型參數可能存在不確定類型，T是未知類型，無法確定它有哪些屬性和方法
+- 泛型參數可能存在不確定類型，T是未知類型，無法確定它有哪些屬性和方法
 
 ![no length](./images/nolength.png)
 
-* 指定更具體的類型，確保它有 length 屬性
+- 指定更具體的類型，確保它有 length 屬性
 
 ```js
 function getId < T > (val: T[]) {
@@ -347,8 +349,8 @@ function getId < T > (val: T[]) {
 }
 ```
 
-* 類型收縮
+- 類型收縮
 
 ![類型收縮](./images/type.png)
 
-* 添加約束
+- 添加約束
