@@ -22,10 +22,14 @@ module.exports = {
       }
     }
   ],
-  parser: "@typescript-eslint/parser",
+  parser: "vue-eslint-parser",
   parserOptions: {
+    extraFileExtensions: [".vue"],
+    parser: "@typescript-eslint/parser",
     ecmaVersion: "latest",
-    sourceType: "module"
+    sourceType: "module",
+    tsconfigRootDir: __dirname,
+    project: ["./tsconfig.json"]
   },
   plugins: ["vue", "@typescript-eslint", "prettier"],
   rules: {
