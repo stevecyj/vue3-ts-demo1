@@ -1,13 +1,7 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div>
-    order
-  </div>
+  <div>order</div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

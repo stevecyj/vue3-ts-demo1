@@ -1,9 +1,9 @@
-<script setup lang='ts'>
-import NavMenu from './navMenu.vue'
+<script setup lang="ts">
+import NavMenu from "./navMenu.vue";
 </script>
 
 <template>
-  <div class="common-layout" id='module'>
+  <div id="module" class="common-layout">
     <el-container>
       <!-- 左側導航 -->
       <NavMenu />

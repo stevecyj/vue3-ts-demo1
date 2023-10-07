@@ -1,14 +1,7 @@
-
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div>
-    monitor
-  </div>
+  <div>monitor</div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
