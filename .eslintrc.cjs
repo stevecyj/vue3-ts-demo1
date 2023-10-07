@@ -33,7 +33,19 @@ module.exports = {
   },
   plugins: ["vue", "@typescript-eslint", "prettier"],
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        printWidth: 80,
+        tabWidth: 2,
+        useTabs: false,
+        singleQuote: false,
+        semi: true,
+        trailingComma: "none",
+        bracketSpacing: true,
+        singleAttributePerLine: true
+      }
+    ],
     "@typescript-eslint/no-explicit-any": ["off"]
   }
 };
