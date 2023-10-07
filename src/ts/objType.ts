@@ -15,10 +15,10 @@
   }
 
   const obj: Person = {
-    name: "Max",
+    name: 'Max',
     age: 30,
-    gender: "male",
-    hobby: "sports",
+    gender: 'male',
+    hobby: 'sports',
     sayHi: (content: string) => {
       console.log(content);
     }
@@ -34,5 +34,5 @@
   obj.soulmate && console.log(obj.soulmate);
 
   // 可選鋉
-  obj.soulmate?.split("");
+  obj.soulmate?.split('');
 }

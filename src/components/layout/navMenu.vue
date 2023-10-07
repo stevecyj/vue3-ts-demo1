@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useMenu } from "./useMenu";
-import Icons from "../common/icons.vue";
+import { useMenu } from './useMenu';
+import Icons from '../common/icons.vue';
 
 const { menuItems } = useMenu();
 </script>

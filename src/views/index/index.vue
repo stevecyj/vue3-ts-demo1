@@ -1,31 +1,31 @@
 <script lang="ts">
 export default {
-  name: "Index"
+  name: 'Index'
 };
 </script>
 <script setup lang="ts">
 // 類型定義
-import { ref, onMounted, computed } from "vue";
-import axios from "../../http/http";
-import { ITableData, INewsList } from "../../models/index";
+import { ref, onMounted, computed } from 'vue';
+import axios from '../../http/http';
+import { ITableData, INewsList } from '../../models/index';
 
 const tableData = ref<ITableData[]>([]); // 表格數據
 let dialogFormVisible = ref<boolean>(false); // 彈框顯示
 let form = ref({});
-const formLabelWidth = "140px";
+const formLabelWidth = '140px';
 
 let getNewsDemo = async () => {
   let { data } = await axios.request<{ data: INewsList[] }>(
-    "get",
-    "/news-demo"
+    'get',
+    '/news-demo'
   );
-  console.log("getNewsDemo", data);
+  console.log('getNewsDemo', data);
 };
 
 let getTableData = async () => {
   let { data } = await axios.request<{ data: ITableData[] }>(
-    "get",
-    "/data/query"
+    'get',
+    '/data/query'
   );
   tableData.value = data;
 };
@@ -59,7 +59,7 @@ const filterHandler = (value: string, row: ITableData) => {
 // 新增、編輯
 const setData = (type: string, row: ITableData | null) => {
   dialogFormVisible.value = true;
-  type === "add" ? (form.value = {}) : (form.value = { ...row });
+  type === 'add' ? (form.value = {}) : (form.value = { ...row });
 };
 </script>
 
@@ -105,7 +105,7 @@ const setData = (type: string, row: ITableData | null) => {
           class="ml-2"
           :type="row.check ? 'success' : 'warning'"
         >
-          {{ row.check ? "已完成" : "未完成" }}
+          {{ row.check ? '已完成' : '未完成' }}
         </el-tag>
       </template>
     </el-table-column>

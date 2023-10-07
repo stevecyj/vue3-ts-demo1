@@ -1,5 +1,5 @@
-import axios, { type AxiosRequestConfig, type AxiosResponse } from "axios"; // AxiosRequestConfig: 請求參數類型
-import { type IHttp } from "../models/index";
+import axios, { type AxiosRequestConfig, type AxiosResponse } from 'axios'; // AxiosRequestConfig: 請求參數類型
+import { type IHttp } from '../models/index';
 
 // ip, port
 // Mock 時關閉

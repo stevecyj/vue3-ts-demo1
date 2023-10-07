@@ -18,11 +18,11 @@
   }
 
   const p1: IPerson = {
-    name: "Max",
+    name: 'Max',
     age: 30,
-    gender: "male",
+    gender: 'male',
     sayHi: () => {
-      console.log("Hi");
+      console.log('Hi');
     }
   };
 
@@ -35,12 +35,12 @@
   }
 
   const s1: IStudent = {
-    name: "biubiu",
+    name: 'biubiu',
     age: 18,
-    gender: "male",
+    gender: 'male',
     score: 100,
     sleep: () => {
-      console.log("sleep");
+      console.log('sleep');
     }
   };
 
@@ -59,15 +59,15 @@
   } & Person;
 
   const s2: Student = {
-    username: "biubiu",
+    username: 'biubiu',
     age: 18,
-    gender: "male",
+    gender: 'male',
     sayHi() {
-      console.log("Hi");
+      console.log('Hi');
     },
     score: 100,
     sleep: () => {
-      console.log("sleep");
+      console.log('sleep');
     }
   };
 }

@@ -2,7 +2,7 @@ import {
   createRouter,
   createWebHashHistory,
   type RouteRecordRaw
-} from "vue-router";
+} from 'vue-router';
 
 // interface IRouterList {
 //   path: string;
@@ -13,35 +13,35 @@ import {
 
 const routes: RouteRecordRaw[] = [
   {
-    path: "/",
-    redirect: "/home"
+    path: '/',
+    redirect: '/home'
   },
   {
-    path: "/home",
-    redirect: "/index",
-    name: "home",
-    component: async () => await import("../components/layout/index.vue"),
+    path: '/home',
+    redirect: '/index',
+    name: 'home',
+    component: async () => await import('../components/layout/index.vue'),
     children: [
       {
-        path: "/index",
-        name: "index",
-        component: async () => await import("../views/index/index.vue")
+        path: '/index',
+        name: 'index',
+        component: async () => await import('../views/index/index.vue')
       },
       {
-        path: "/monitor",
-        name: "monitor",
-        component: async () => await import("../views/monitor/index.vue")
+        path: '/monitor',
+        name: 'monitor',
+        component: async () => await import('../views/monitor/index.vue')
       },
       {
-        path: "/order",
-        name: "order",
-        component: async () => await import("../views/order/index.vue")
+        path: '/order',
+        name: 'order',
+        component: async () => await import('../views/order/index.vue')
       },
       {
-        path: "/twolayer",
-        name: "TwoLayer",
+        path: '/twolayer',
+        name: 'TwoLayer',
         component: async () =>
-          await import("../views/twolayer/TwolayerIndex.vue")
+          await import('../views/twolayer/TwolayerIndex.vue')
       }
     ]
   }

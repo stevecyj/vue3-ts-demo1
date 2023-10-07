@@ -10,14 +10,14 @@
   }
 
   getId<number>(123);
-  getId<string>("123");
+  getId<string>('123');
 
   const result = getId<number>(123); // 類型推斷 => number
-  const result2 = getId<string>("123"); // 類型推斷 => string
+  const result2 = getId<string>('123'); // 類型推斷 => string
   const result3 = getId<boolean>(true); // 類型推斷 => boolean
 
   const result4 = getId(123); // 類型推斷 => 123
-  const result5 = getId("123"); // 類型推斷 => '123'
+  const result5 = getId('123'); // 類型推斷 => '123'
   const result6 = getId(true); // 類型推斷 => true
 
   // 泛型約束
