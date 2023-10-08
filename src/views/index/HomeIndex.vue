@@ -1,11 +1,12 @@
 <script setup lang="ts">
 // 類型定義
-import { ref, onMounted, computed } from 'vue';
+import { ref, reactive, onMounted, computed } from 'vue';
 import axios from '../../http/http';
 import {
   type ITableData,
   type INewsList,
-  type IAddForm
+  type IAddForm,
+  type IReportAccount
 } from '../../models/index';
 
 const tableData = ref<ITableData[]>([]); // 表格數據
@@ -29,9 +30,24 @@ const getTableData = async (): Promise<void> => {
   tableData.value = data;
 };
 
+// query string
+const getReportAccountParams = reactive<IReportAccount>({
+  game_id: 1,
+  page: 1
+});
+const getReportAccount = async (): Promise<void> => {
+  const { data } = await axios.request<{ data: string }>(
+    'post',
+    '/fishadmin/web/index/index',
+    getReportAccountParams
+  );
+  console.log('getReportAccount', data);
+};
+
 onMounted(async () => {
   await getTableData();
   await getNewsDemo();
+  await getReportAccount();
 });
 
 // 處理日期動態數據
