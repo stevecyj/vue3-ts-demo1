@@ -29,7 +29,7 @@ const http: IHttp = {
     await axios({
       method,
       url,
-      data: params
+      params
     })
 };
 
