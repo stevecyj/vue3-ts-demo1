@@ -1,5 +1,6 @@
 import Mock from 'mockjs';
 import { type ITableData } from '../models/index';
+import { getQuery } from '../../utils';
 import './mockExample';
 // console.log("mock", Mock);
 
@@ -94,5 +95,15 @@ Mock.mock('/data/query', 'get', () => {
     code: 200,
     message: 'success',
     data: fakeData
+  };
+});
+
+// get query string
+Mock.mock(/\/fishadmin\/web\/index\/index/, 'post', (config) => {
+  const gameId = getQuery(config.url, 'game_id');
+  const page = getQuery(config.url, 'page');
+  console.log({ gameId, page });
+  return {
+    data: 'success'
   };
 });

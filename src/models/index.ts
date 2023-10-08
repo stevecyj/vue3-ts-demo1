@@ -36,3 +36,13 @@ export interface INewsList {
 //   message: string;
 //   data: Array<IList>;
 // }
+
+// report account
+export interface IReportAccount {
+  game_id: number;
+  sn?: number;
+  agentloginid?: number;
+  linecode?: number;
+  nickname?: string;
+  page: number;
+}
